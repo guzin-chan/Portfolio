@@ -1,0 +1,32 @@
+   ## Hitórico do CMD
+   
+   82  sudo su
+   83  sudo adduser goku
+   84  sudo adduser minion
+   85  clear
+   86  sudo su
+   87  sudo adduser Minion
+   88  adduser Minion
+   89  sudo su
+   90  adduser minion
+   91  sudo adduser minion
+   92  ls
+   93  sudo deluser Minion
+   94  sudo deluser minion
+   95  clear
+   96  sudo adduser minionSorrindo
+   97  clear
+   98  sudo adduser minion_sorrindo
+   99  sudo adduser freeza
+  100  sudo adduser mistica
+  101  sudo adduser minion_de_lingua_pra_fora
+  102  sudo adduser tempestade
+  103  sudo adduser homem_de_ferro
+  104  sudo adduser homem_aranha
+  105  sudo adduser minion_banana
+  106  sudo adduser arlequina
+  107  sudo adduser venom
+  108  sudo adduser minion_prancheta
+  109  usermod --uid 6969 venom
+  110  sudo su
+  111  history
