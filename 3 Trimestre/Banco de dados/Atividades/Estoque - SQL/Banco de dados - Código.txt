@@ -1,0 +1,42 @@
+CREATE TABLE Estoque (
+  codigo int,
+  PRIMARY KEY(codigo),
+  saldo int,
+  fornecedor VARCHAR(200),
+  preco_unitario float
+)
+
+CREATE TABLE Clientes (
+  cpf int,
+  PRIMARY KEY(cpf),
+  nome VARCHAR(200),
+  celular VARCHAR(16),
+  cidade VARCHAR(100),
+  CEP VARCHAR(12)
+)
+
+CREATE TABLE Vendas (
+  vendedor VARCHAR(100),
+  PRIMARY KEY(vendedor),
+  dataa VARCHAR(11),
+  historico VARCHAR(200),
+  nota VARCHAR(100)
+)
+
+CREATE TABLE Logistica (
+  codigo_de_entrega int,
+  PRIMARY KEY(codigo_de_entrega),
+  nota_fiscal_remessa VARCHAR(200),
+  entregador VARCHAR(140),
+  dataa VARCHAR(11),
+  hora VARCHAR(8)
+)
+
+CREATE TABLE Produtos(
+  codigo int,
+  PRIMARY KEY(codigo),
+  nota_fiscal VARCHAR(200),
+  descricao VARCHAR(200),
+  valor_unitario float,
+  ingredientes VARCHAR(200)
+)

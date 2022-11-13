@@ -1,0 +1,64 @@
+CREATE TABLE cliente (
+  metodoPagamento VARCHAR(45) NOT NULL,
+  nome VARCHAR(100) NOT NULL,
+  CPF VARCHAR(16) Not NULL,
+  PRIMARY KEY(CPF),
+  numeroSerieCarro VARCHAR(45) nOT NULL,
+  FOREIGN key (numeroSerieCarro)
+  REFERENCES carro (numeroSerie)
+)
+ 
+CREATE TABLE carro (
+  preco INT NOT NULL,
+  modelo VARCHAR(45) NoT NULL,
+  marca VARCHAR(45) NOT NULL,
+  numeroSerie VARCHAR(45) NOT NULL,
+  PRIMARY KEY(numeroSerie)
+)
+  
+CREATE TABLE vendedor (
+  nome VARCHAR(100) NOT NULL,
+  idade INT NOT NULL,
+  CPF VARCHAR(16) NOT NULL,
+  PRIMARY KEY(CPF),
+  numeroSerieCarro VARCHAR(45) nOT NULL,
+  FOREIGN key (numeroSerieCarro)
+  REFERENCES carro (numeroSerie)
+)
+   
+CREATE TABLE patio (
+  qntMaxima INT NOT NULL,
+  endereco VARCHAR(45) NOT NULL,
+  PRIMARY KEY(endereco),
+  numeroSerieCarro VARCHAR(45) nOT NULL,
+  FOREIGN key (numeroSerieCarro)
+  REFERENCES carro (numeroSerie)
+)
+
+INSERT INTO carro (preco, modelo, marca, numeroserie)
+VALUES (10000, 'Conversivel', 'Renault', '111-111'),
+(15000, 'Sedã', 'Lamburgini', '222-222'),
+(30000, 'Picape', 'Volvo', '333-333');
+
+SELECT * FROM carro
+
+INSERT into cliente (metodopagamento, nome, cpf, numeroseriecarro)
+VALUES ('Pix', 'Gustavo', '111.111.111-11', '111-111'),
+('Boleto', 'João', '222.222.222-22', '222-222'),
+('Cartão-Crédito', 'Vitor', '333.333.333-33', '333-333');
+
+SELECT * FROM cliente
+
+INSERT INTO patio (qntmaxima, endereco, numeroseriecarro)
+VALUES (50, 'São-José', '111-111'),
+(25, 'Brejaru', '222-222'),
+(10, 'Palhoça', '333-333');
+
+SELECT * FROM patio
+
+INSERT INTO vendedor (nome, idade, CPF, numeroseriecarro)
+VALUES ('Pedro', 34, '444.444.444-44', '111-111'),
+('Carlos', 80, '555.555.555-55', '222-222'),
+('Lucas', 20, '666.666.666-66', '333-333');
+
+SELECT * FROM vendedor
