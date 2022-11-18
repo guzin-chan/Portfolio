@@ -4,7 +4,7 @@
 **Tenho 17 anos**, nasci em Florianópolis e moro na Palhoça desde que nasci. Atualmente estou trabalhando como jovem aprendiz na empresa Intelbras. Gosto da área de TI desde que era criança, um ano atrás criei meu primeiro site e desde então não parei. Gosto de fazer design de diversas coisas no figma. Tenho conhecimento nas linguagens de programção: **CSS**, **Javascript**, **Java** e **Html**.
 <br>
 ### **Esse sou eu** 🤘🏻🤘🏻
-![image](https://user-images.githubusercontent.com/102531676/165113698-7b3bf7d0-d677-4b66-a69c-0ee14fb523d8.png)
+![image](https://user-images.githubusercontent.com/102531676/202691249-a8b3d1f2-4cb6-4e5c-8694-7b8649e3cdf7.png)
 <br>
 <br>
 <br>
