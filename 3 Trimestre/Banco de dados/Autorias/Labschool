@@ -1,0 +1,174 @@
+-- SCRIPT DO PROJETO2 (LabSchool)
+-- SUMÁRIO
+
+-- 1- DDL
+---- 1.1- CRIAÇÃO DAS TABELAS
+---- 1.2- RELACIOANAMENTO ENTRE TABELAS
+---- 1.3- REMOCÃO DAS TABELAS
+
+-- 2- DML
+--- 2.1- INSERINDO DADOS NAS TABELAS
+--- 2.2- PESQUISA GERAL DAS TABELAS
+--- 2.3- EXEMPLO DE PESQUISAS ESPEFICICAS DAS TABELAS
+
+-- FEITO POR GUSTAVO DE SOUZA BRAGA =D
+
+
+
+
+
+-- 1- DDL
+---- 1.1- CRIAÇÃO DAS TABELAS
+-- Criação da tabela Professores
+        CREATE TABLE public.professores
+        (
+                pk_id_professor SERIAL PRIMARY KEY NOT NULL UNIQUE,
+                fk_id_endereco INT UNIQUE,
+
+                nome VARCHAR(64) NOT NULL,
+                cpf VARCHAR(11) NOT NULL UNIQUE,
+                dataNascimento DATE NOT NULL,
+                telefone VARCHAR(16),
+                formacao VARCHAR(100) NOT NULL,
+                experiencia VARCHAR(100) NOT NULL,
+                estado BOOLEAN NOT NULL
+        );
+
+-- Criação da tabela Alunos
+        CREATE TABLE public.alunos
+        (
+                pk_id_aluno SERIAL PRIMARY KEY NOT NULL UNIQUE,
+                fk_id_endereco INT UNIQUE,
+
+                nome VARCHAR(64) NOT NULL,
+                cpf VARCHAR(11) NOT NULL UNIQUE,
+                dataNascimento DATE NOT NULL,
+                telefone VARCHAR(16),
+                estadoMatricula VARCHAR(100) NOT NULL,
+                notaDoProcesso FLOAT NOT NULL
+        );
+
+-- Criação da tabela Pedagogos
+        CREATE TABLE public.pedagogos
+        (
+                pk_id_pedagogo SERIAL PRIMARY KEY NOT NULL UNIQUE,
+                fk_id_endereco INT UNIQUE,
+
+                nome VARCHAR(64) NOT NULL,
+                cpf VARCHAR(11) NOT NULL UNIQUE,
+                dataNascimento DATE NOT NULL,
+                telefone VARCHAR(16),
+                estado BOOLEAN NOT NULL
+        );
+
+-- Criação da tabela Enderecos
+        CREATE TABLE public.enderecos
+        (
+                pk_id_endereco SERIAL PRIMARY KEY NOT NULL UNIQUE,
+
+                cep VARCHAR(9) NOT NULL,
+                logradouro VARCHAR(100) NOT NULL,
+                numero INT NOT NULL,
+                complemento VARCHAR(200),
+                bairro VARCHAR(100) NOT NULL,
+                cidade VARCHAR(100) NOT NULL,
+                uf VARCHAR(2) NOT NULL
+        );
+
+-- Criação da tabela Antedimentos
+        CREATE TABLE public.atendimentos
+        (
+                pk_id_atendimento SERIAL PRIMARY KEY NOT NULL UNIQUE,
+                fk_id_pedagogo INT,
+                fk_id_aluno INT,
+
+                titulo VARCHAR(100) NOT NULL,
+                descricao VARCHAR(200) NOT NULL,
+                categoria VARCHAR(100) NOT NULL,
+                estado BOOLEAN
+        );
+
+
+
+
+
+---- 1.2- RELACIONAMENTO ENTRE TABELAS
+-- Um professor possui um endereço
+ALTER TABLE public.professores
+                ADD FOREIGN KEY (fk_id_endereco)
+                REFERENCES public.enderecos (pk_id_endereco)
+
+-- Um aluno possui um endereço
+ALTER TABLE public.alunos
+        ADD FOREIGN KEY (fk_id_endereco)
+        REFERENCES public.enderecos (pk_id_endereco)
+
+-- Um pedagogo possui um endereço
+ALTER TABLE public.pedagogos
+        ADD FOREIGN KEY (fk_id_endereco)
+        REFERENCES public.enderecos (pk_id_endereco)
+
+-- Um pedagogo possui varios atendimento
+ALTER TABLE public.atendimentos
+        ADD FOREIGN KEY (fk_id_pedagogo)
+        REFERENCES public.pedagogos (pk_id_pedagogo)
+
+-- Um aluno possui varios atendimento
+ALTER TABLE public.atendimentos
+        ADD FOREIGN KEY (fk_id_aluno)
+        REFERENCES public.alunos (pk_id_aluno)
+
+
+
+
+
+---- 1.3- REMOÇÃO DAS TABELAS
+-- Remover tabela professor
+DROP TABLE professores;
+
+-- Remover tabela aluno
+DROP TABLE alunos;
+
+-- Remover tabela pedagogo
+DROP TABLE pedagogos;
+
+-- Remover tabela endereco
+DROP TABLE enderecos;
+
+-- Remover tabela atendimento
+DROP TABLE atendimentos;
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+
+-- 2- DML
+--- 2.1- INSERINDO DADOS NAS TABELAS
+-- Inserindo dados na tabela endereco
+INSERT INTO enderecos(cep, logradouro, numero, complemento, bairro, cidade, uf)
+VALUES ('88130465', 'Rua José Adão', 29, 'Casa lilas com sacadaa', 'São José', 'Palhoça', 'SC');
+
+INSERT INTO enderecos(cep, logradouro, numero, complemento, bairro, cidade, uf)
+VALUES ('78521290', 'Vinte', 658, 'Fazenda 1', 'Centro', 'Parintins', 'AM');
+
+INSERT INTO enderecos(cep, logradouro, numero, complemento, bairro, cidade, uf)
+VALUES ('76946618', 'Rui Barbosa', 82, 'Andar 3', 'São Francisco', 'Iguatu', 'CE');
+
+INSERT INTO enderecos(cep, logradouro, numero, complemento, bairro, cidade, uf)
+VALUES ('78705979', 'Paraná', 371, 'Sobreloja 8', 'Industrial', 'João Pessoa', 'PB');
+
+INSERT INTO enderecos(cep, logradouro, numero, complemento, bairro, cidade, uf)
+VALUES ('49412981', 'Castro Alves', 4481, 'Quadra 1', 'São José', 'Boa Vista', 'RR');
+
+INSERT INTO enderecos(cep, logradouro, numero, complemento, bairro, cidade, uf)
+VALUES ('90255694', 'São Luiz', 2503, 'Anexo 2', 'São Francisco', 'Ariquemes', 'RO');
+
+INSERT INTO enderecos(cep, logradouro, numero, complemento, bairro, cidade, uf)
+VALUES ('85957175', 'Dois', 854, 'Andar 2', 'Vila Nova', 'Colatina', 'ES');
+

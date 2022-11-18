@@ -1,0 +1,31 @@
+**ICMP (Internet Control Message Protocol) 📲**
+
+É um protocolo de camada de rede usado por dispositivos de rede para diagnosticar problemas de comunicação de rede.
+
+→ Presente na camada de rede;
+
+→ Analisa perda ou atraso de pacotes;
+
+→ Sabe se a rede caiu;
+
+→ É usado no CMD/terminal/prompt de comando
+
+→ ipconfig (verificar meu ip)
+
+→ ping (endereço de um site)
+
+→ ping (IP do roteador)
+
+→ ping (IP de algum lugar da rede)
+
+---
+
+**DNS 🏦**
+
+É um servidor que tem uma lista de nomes com seu correspondente ip, exemplo
+
+---
+
+**DHCP (Dynamic Host Configuration Protocol)**
+
+Cria um Ip automaticamente
